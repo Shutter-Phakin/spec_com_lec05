@@ -1,0 +1,17 @@
+<h1>Main/test</h1>
+
+<%= form_with url: "/main/test_re", method: :post, data: {turbo: false} do |form| %>
+    <% for i in 1..@number_subjects do %>
+        <label for="subject">Subject#<%=i%>: </label>
+        <input type="text" name="subject[name][]" value="" required>
+        <label for="score">Score#: </label>
+        <input type="number" name="subject[score][]" min="0" max="100" value="" required> <br><br>
+        <%# form.label :subject[name][], "##{i} Subject:"%>
+        <%# form.text_field :subject[name][] %>
+        <%# form.label :subject[score][], "##{i} Score:" %>
+        <%# form.number_field :subject[score][] %>
+        <%# <br><br> %>
+    <% end %>
+    <%= form.submit "Submit" %>
+<% end %><br>
+<a href="score/list"> View Subject List</a>

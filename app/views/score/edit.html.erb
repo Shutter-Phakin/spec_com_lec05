@@ -1,0 +1,11 @@
+<h1>Edit subject</h1>
+
+<%= form_with url: "/score/edit", method: :post, data: {turbo: false} do |form| %>
+    <%= form.hidden_field :id_edit, value: @id_before %>
+    <label for="subject">Subject </label>
+    <input type="text" name="title_edit" value="<%= @title_before %>">
+    <label for="score">Score </label>
+    <input type="number" name="score_edit" min="0" max="100" value="<%= @score_before.to_i %>" > <br><br>
+<%= form.submit "Save" %>
+<% end %><br>
+<%= button_to "Back", {controller: 'score', action: 'list'} %>  

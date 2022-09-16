@@ -1,0 +1,17 @@
+<h1>List of subjects</h1>
+
+<% @all_sub.each_with_index do |subject, idx| %>
+  <br><a>Title: </a>
+  <%= "#{subject.title}" %><br>
+  <a>Score: </a>
+  <%= "#{subject.score}" %><br>
+  <!-- edit this subject /!-->
+  <%= link_to "Edit this subject", {:controller => 'score', :action => 'edit', :id_before => subject.id, :title_before => subject.title, :score_before => subject.score} %>
+  <!-- delete this item /!-->
+  <br><%= link_to "Delete this subject", {:controller => 'score', :action => 'delete', :id => subject.id} %>
+  <br>
+<% end %>
+<p>Total Score: </p>
+<%= @sum_score_2 %><br>
+<p>Subject with max score: </p>
+<%= @max_sub_2 %>  

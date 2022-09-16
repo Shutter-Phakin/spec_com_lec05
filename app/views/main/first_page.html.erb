@@ -1,0 +1,9 @@
+<h1>Select number of subject</h1>
+<%= form_with url: "/main/test", method: :post, data: {turbo: false} do |form| %>
+    <div>
+        <p>Choose the number of subjects</p><br>
+        <%= form.select :number_subjects, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+        <%= form.submit "Submit" %>
+    </div>
+<% end %><br>
+<a href="score/list"> View Subject List</a>
